@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '/theme/constant.dart';
-import '/widgets/search_dog_card.dart';
+import '../widgets/search.dart';
 
 class SearchPage extends StatelessWidget {
   @override

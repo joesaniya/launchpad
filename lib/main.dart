@@ -44,25 +44,18 @@ class _RootPageState extends State<RootPage> {
     //   child: Text("Search",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
     // )
     ),
-    BottomNavigationBarItem(icon: Icon(LineIcons.book,size: 27),
-    label: 'notifications'
-    // title:Padding(
-    //   padding: const EdgeInsets.only(top: 8),
-    //   child: Text("Articles",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
-    // )
-    ),
     BottomNavigationBarItem(icon: Icon(LineIcons.bell,size: 27),
-    label: 'Alert'
+    label: 'notifications'
     ),
-    BottomNavigationBarItem(icon: Icon(LineIcons.user,size: 27),
-    label: 'search'
+    BottomNavigationBarItem(icon: Icon(Icons.alarm,size: 27),
+    label: 'Alerts'
     )
   ];
   int selectedIndex = 0;
   List <Widget> pages = [
     Homepage(),
-    SearchPage(),
-    Center(child: Text("Articles",style: TextStyle(fontSize: 40),),),
+    // SearchPage(),
+    Center(child: Text("Search",style: TextStyle(fontSize: 40),),),
     Center(child: Text("Notifications",style: TextStyle(fontSize: 40),),),
     Center(child: Text("Profile",style: TextStyle(fontSize: 40),),)
   ];
@@ -79,7 +72,8 @@ class _RootPageState extends State<RootPage> {
           elevation: 0.0,
   toolbarHeight: 90, // Set this height
   flexibleSpace: Container(
-    color: Colors.cyan.shade200,
+    // color: Colors.cyan.shade200,
+    color: primary,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -153,69 +147,6 @@ class _RootPageState extends State<RootPage> {
 )
       ),
     ),
-      // appBar: AppBar
-      // (
-      //   backgroundColor: Colors.cyan,
-      //   elevation: 0.0,
-      //   centerTitle: false,
-      //   title: new Row
-      //     (
-      //     mainAxisAlignment: MainAxisAlignment.start,
-      //       children:
-      //       [
-      //         Image.asset('assets/images/card_1.png',fit: BoxFit.contain,height: 32,), 
-      //         Container(padding: const EdgeInsets.all(8.0), child: Text('Solid Shop'))
-      //       ],
-      //     ),
-      //   // title: CircleAvatar(backgroundColor: Colors.grey,),
-      //   // leading: CircleAvatar(backgroundColor: Colors.grey,),
-      //   actions: 
-      //   [
-      //     // IconButton(onPressed: (){}, icon: Icon(Icons.abc)),
-      //     // const Spacer(),
-      //     Icon(Icons.notifications),
-      //     SizedBox(width: 4,),
-      //     Icon(Icons.alarm),// here add notification icon
-      //     SizedBox(width: 4,),
-      //     Container
-      //     (
-      //       padding: const EdgeInsets.only(top:20.0,right: 20,bottom: 20,left: 3),
-      //         //   decoration: BoxDecoration
-      //     //   (
-      //     //     color: Colors.amber,
-      //     //     border: Border.all(
-      //     //         width: 3.0
-      //     //       ),
-      //     //       borderRadius: BorderRadius.all(
-      //     //           Radius.circular(5.0) //         <--- border radius here
-      //     //       ),
-      //     //   ), 
-      //       child: Container
-      //       (
-      //         height: 30,
-      //         width: 100,
-      //         color: Colors.yellow,
-      //         child: Text('Connect Wallet'))) // he
-      //     // Container(
-      //     //   margin: const EdgeInsets.all(30.0),
-      //     //   padding: const EdgeInsets.all(10.0),
-      //     //   decoration: BoxDecoration
-      //     //   (
-      //     //     color: Colors.amber,
-      //     //     border: Border.all(
-      //     //         width: 3.0
-      //     //       ),
-      //     //       borderRadius: BorderRadius.all(
-      //     //           Radius.circular(5.0) //         <--- border radius here
-      //     //       ),
-      //     //   ), //       <--- BoxDecoration here
-      //     //   child: Text(
-      //     //     "text",
-      //     //     style: TextStyle(fontSize: 30.0),
-      //     //   ),
-      //     // )
-      //   ],
-      // ),
       body: getBody(),
       bottomNavigationBar: SizedBox(
               height: 100,

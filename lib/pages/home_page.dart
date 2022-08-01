@@ -5,7 +5,7 @@ import 'package:launchpad_demo/table_widget/projecttable.dart';
 import '../widgets/datatable.dart';
 import '../table_widget/table.dart';
 import '/theme/constant.dart';
-import '/widgets/dog_card.dart';
+import '../widgets/custom_card.dart';
 import '/widgets/walk_card_dog.dart';
 
 
