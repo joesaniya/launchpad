@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Pet App UI',
+      title: 'Hami App',
       theme: ThemeData(
           textTheme: GoogleFonts.latoTextTheme(
             Theme.of(context).textTheme
@@ -34,7 +34,7 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
-  List <BottomNavigationBarItem>items = [
+  List <BottomNavigationBarItem>items = const [
     BottomNavigationBarItem(icon: Icon(LineIcons.home,size: 27,),label: 'home'
     ),
     BottomNavigationBarItem(icon: Icon(LineIcons.search,size: 27,),
@@ -59,10 +59,83 @@ class _RootPageState extends State<RootPage> {
     Center(child: Text("Notifications",style: TextStyle(fontSize: 40),),),
     Center(child: Text("Profile",style: TextStyle(fontSize: 40),),)
   ];
+
+  Widget StylishDrawer()
+  {
+    return ClipPath
+    (
+      clipper: DrwaerStyle(),
+      child: Container
+      (
+        width: 300,
+        height: 600,
+        child: Stack
+        (
+          children: 
+          [
+            BackdropFilter
+            (
+              filter: ImageFilter.blur
+              (
+                sigmaX: 5.0,
+                sigmaY: 5.0
+              ),
+              child: Container
+              (
+                decoration:BoxDecoration
+                (
+                  color: primary.withOpacity(0.5)
+                )
+              ),
+            ),
+            Container
+            (
+              child: ListView
+              (
+                children: 
+                [
+                  Column
+                  (
+                    children: 
+                    const [
+                      Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox
+                    (
+                      width: 100,
+                      height: 100,
+                      child: CircleAvatar
+                      (
+                        backgroundImage: NetworkImage('https://www.woolha.com/media/2020/03/eevee.png'),
+                      ),
+                    ),
+                  ),
+                  Text('Hami',style: TextStyle(color: Colors.white),textAlign: TextAlign.center,)
+                    ],
+                  ),
+                  SizedBox
+                  (
+                    height: 20,
+                  ),
+                  Divider(height: 0.5,color: Colors.white,),
+                  ListTile
+                  (
+                    leading: Icon(Icons.home,color: Colors.white,),
+                    title: Text('Home',style: TextStyle(color: Colors.white),),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: StylishDrawer(),
       appBar: AppBar(
         elevation: 0.0,
       toolbarHeight: 90, // Set this height
@@ -176,6 +249,29 @@ class _RootPageState extends State<RootPage> {
 
   Widget getBody() {
     return pages.elementAt(selectedIndex);
+  }
+}
+
+class DrwaerStyle extends CustomClipper<Path>
+{
+
+  @override
+  Path getClip(Size size)
+  {
+
+    Path path=new Path();
+    path.lineTo(0, size.height);
+    path.quadraticBezierTo(size.width/4, size.height, size.width/2, size.height-40);
+    path.quadraticBezierTo(size.width-50, size.height-80, size.width, size.height);
+    path.quadraticBezierTo(size.width-100, size.height/2, size.width,0.0);
+    path.quadraticBezierTo(size.width/2, 30.0, 0.0,0.0);
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper)
+  {
+    return null;
   }
 }
 

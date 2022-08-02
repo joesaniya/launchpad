@@ -224,7 +224,7 @@ class _HorizontalTableState extends State<HorizontalTable> {
   Widget _generateFirstColumnRow(BuildContext context, int index) {
     return Container(
       color: Colors.cyan,
-      child: Text(user.userInfo[index].name,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.white),),
+      child: Center(child: Text(user.userInfo[index].name,style: const TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.white),)),
       width: 150,
       height: 56,
       padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -299,7 +299,7 @@ class Student {
   void initData(int size) {
     for (int i = 0; i < size; i++) {
       _userInfo.add(StudentInfo(
-          "Student_$i", i % 3 == 0, 'St_No $i', '10:00 AM', '12:30 PM'));
+          "$i", i % 3 == 0, 'St_No $i', '10:00 AM', '12:30 PM'));
     }
   }
 

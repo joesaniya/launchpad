@@ -76,11 +76,11 @@ class _ProjectTableState extends State<ProjectTable> {
         },
       ),
       Container(width: 2,height: 56,color: Colors.white,),
-      _getTitleItemWidget('TOKEN NAME', 150,Color(0xFF333366)),
+      _getTitleItemWidget('NAME', 150,Color(0xFF333366)),
       Container(width: 2,height: 56,color: Colors.white,),
       FlatButton(
         padding: EdgeInsets.all(0),
-        child: _getTitleItemWidget('TOKEN SUPPLY' +
+        child: _getTitleItemWidget('LIQUIDITY %' +
             (sortType == sortStatus ? (isAscending ? '↓' : '↑') : ''), 150,Color(0xFF333366)),
         onPressed: () {
           sortType = sortStatus;
@@ -92,7 +92,7 @@ class _ProjectTableState extends State<ProjectTable> {
         },
       ),
       Container(width: 2,height: 56,color: Colors.white,),
-      _getTitleItemWidget('TOKEN_TYPE', 150,Color(0xFF333366)),
+      _getTitleItemWidget('LOCKUP TIME', 150,Color(0xFF333366)),
       // Container(width: 2,height: 56,color: Colors.white,),
       // _getTitleItemWidget('End Time', 200,Colors.red),
     ];
@@ -112,7 +112,7 @@ class _ProjectTableState extends State<ProjectTable> {
   Widget _generateFirstColumnRow(BuildContext context, int index) {
     return Container(
       color: Colors.cyan,
-      child: Text(user.userInfo[index].name,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.white),),
+      child: Center(child: Text(user.userInfo[index].name,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.white),)),
       width: 150,
       height: 56,
       padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -125,7 +125,7 @@ class _ProjectTableState extends State<ProjectTable> {
       children: <Widget>[
         Container(
           child: Row(
-            // crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             // mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(user.userInfo[index].roll_no,style: TextStyle(fontSize: 18),),
@@ -140,7 +140,7 @@ class _ProjectTableState extends State<ProjectTable> {
         ),
         Container(width: 2,height: 56,color: Colors.blueGrey,),
         Container(
-          child:Text(user.userInfo[index].start_time,style: TextStyle(fontSize: 18),),
+          child:Center(child: Text(user.userInfo[index].start_time,style: TextStyle(fontSize: 18),)),
           // child: Row(
           //   children: <Widget>[
 
